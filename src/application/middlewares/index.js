@@ -4,11 +4,11 @@ import withSockets from './with-sockets';
 import withHeaders from './with-headers';
 
 const Middlewares = (app, io) => {
+    app.use(withHeaders());
     app.use(express.urlencoded({extended: true}));
     app.use(express.json());
     app.use(withSockets(io));
-    app.use(cors()) // Use this after the variable declaration
-    app.use(withHeaders());
+    // app.use(cors()) // Use this after the variable declaration
 };
 
 export default Middlewares;
